@@ -1,0 +1,88 @@
+// Backgrounds
+
+@media (min-width: 960px) {
+  .bg1 {
+    background-image: url("../images/bg-img.jpg");
+  }
+  .bg2 {
+    background-image: url("../images/bg-img-1.jpg");
+  }
+  .bg3 {
+    background-image: url("../images/bg-img-2.jpg");
+  }
+}
+
+@media (min-width: 1608px) {
+  .bg1 {
+    background-image: url("../images/bg-image.jpg");
+  }
+
+  .bg2 {
+    background-image: url("../images/bg-image-1.jpg");
+  }
+
+  .bg3 {
+    background-image: url("../images/bg-image-2.jpg");
+  }
+}
+
+@media (max-width: 970px) {
+  .right-container {
+    display: none;
+  }
+
+  .left-container {
+    width: 100%;
+  }
+
+  .login-header h2 {
+    font-size: 2.3rem;
+  }
+
+  .login-form {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .login-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+  }
+
+  .sign-container {
+    padding-left: 1.6rem;
+  }
+}
+
+@media (max-width: 392px) {
+  .left-inside {
+    max-width: 100%;
+    padding: 1rem;
+    margin-top: 3.3rem;
+  }
+
+  .lines {
+    margin: auto;
+    width: 100%;
+  }
+
+  .sign-container {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .divider {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .responsive-circle {
+    margin: 0rem 1rem;
+  }
+
+  .circle {
+    position: absolute;
+    z-index: 5;
+    background-color: rgb(255, 255, 255);
+  }
+}

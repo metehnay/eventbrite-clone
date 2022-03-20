@@ -1,0 +1,255 @@
+// Positioning
+
+.left-container {
+  width: 50%;
+  min-height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-inside {
+  margin-top: 8.3rem;
+  max-width: 360px;
+  width: 100%;
+}
+
+// Header Content
+.login-header > h1 {
+  font-size: 1.5rem;
+  color: #f05537;
+}
+
+.login-header > h2 {
+  font-size: 3rem;
+  line-height: 4rem;
+  letter-spacing: 1;
+  padding: 0.9rem 0;
+  color: #1e0a3c;
+}
+
+// Input and Button Container
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+input {
+  height: 49px;
+  border: 1px solid rgba(204, 204, 204, 0.7);
+  border-radius: 2px;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
+#pass {
+  margin-top: 0.6rem;
+}
+
+.form-button {
+  background-color: #d1410c;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  border-radius: 4px;
+  height: 44px;
+  line-height: 24px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  top: 0.6rem;
+}
+
+.first-input,
+.second-input {
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: relative;
+}
+
+.form-button-secondary {
+  background-color: #fff;
+  height: 44px;
+  cursor: pointer;
+  line-height: 24px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  margin-top: 0.9rem;
+  border-radius: 4px;
+  border: 2px solid rgba(156, 156, 156, 0.8);
+}
+
+.label {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px 12px 0;
+}
+
+.second-input > label {
+  padding: 9px 12px 0;
+}
+
+.label > span {
+  color: #6f7287;
+  color: var(--eds-ui-600, #6f7287);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.form-error {
+  color: #c61c33 !important;
+}
+
+.form-error:focus {
+  border: 2px solid #c61c33;
+}
+
+.form-input:focus {
+  border: 2px solid #3659e3;
+}
+
+input {
+  width: 360px;
+  max-width: 360px;
+}
+
+input::placeholder {
+  position: absolute;
+  top: 5px;
+  font-size: 11.8px;
+  left: 10px;
+}
+
+input:focus {
+  outline: none !important;
+  color: #000000;
+  padding-top: 1rem;
+  padding-left: 10.4px;
+}
+
+#pass::placeholder {
+  opacity: 0.9;
+}
+
+// Divider and Social Logins
+.divider {
+  padding: 0.4rem 0;
+}
+
+.lines {
+  margin-top: 1rem;
+  width: 360px;
+  height: 25px;
+  position: relative;
+}
+
+.lines::after,
+.lines::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  height: 1.5px;
+
+  background-color: rgba(173, 173, 173, 0.9);
+  width: 43.9%;
+  top: 45%;
+}
+
+.lines::after {
+  left: 0;
+}
+
+.lines::before {
+  right: 0;
+}
+
+.circle {
+  height: 25px;
+  width: 46px;
+  border: 1px solid rgba(173, 173, 173, 1);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  border-radius: 25px;
+  opacity: 0.9;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.circle-text {
+  position: absolute;
+  opacity: 0.9;
+  top: 3px;
+  bottom: 0;
+  left: 2px;
+  right: 0;
+}
+
+.sign-container {
+  width: 360px;
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-container img {
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.sign-container span {
+  color: #3659e3;
+  font-weight: 600;
+  font-size: 13.4px;
+  opacity: 0.9;
+  padding-left: 0.4rem;
+}
+
+.sign-container h4 {
+  display: flex;
+  margin: 0.4rem 0;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+h5 {
+  margin: 1.5rem 10px;
+  color: #3659e3;
+  font-weight: 500;
+  font-size: 13.4px;
+  cursor: pointer;
+}
+
+#blue-label {
+  color: #3659e3;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  top: 0.6rem;
+}

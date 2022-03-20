@@ -1,0 +1,20 @@
+h5:hover {
+  text-decoration: underline;
+}
+
+.btn:hover {
+  filter: contrast(1.15);
+  background-color: #f05537;
+  opacity: 0.9;
+  transition: 0.5s all;
+}
+
+.sign-container h4:hover {
+  background-color: #f8f7fa;
+  border-radius: 4px;
+}
+
+.btn1:hover {
+  background-color: #f8f7fa;
+  transition: 0.5s all;
+}
