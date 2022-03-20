@@ -1,4 +1,3 @@
-LIVE AT: https://eventbrite-login.netlify.app/
 
 ![Screenshot_49](https://user-images.githubusercontent.com/99619400/159090678-2eebcfa6-dcfe-4862-89f2-d7ddf810ce84.jpg)
 
