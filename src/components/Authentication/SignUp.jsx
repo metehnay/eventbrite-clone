@@ -3,47 +3,32 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import IconButton from "@material-ui/core/IconButton";
-import { useContext, MainContext } from "../hooks/Context";
+import { useContext, MainContext } from "../../hooks/Context";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import {
+  getAuth,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-import { auth, provider } from "../configs/firebase-config";
+import { auth, provider } from "../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 const SignUp = ({loginPage, setLoginPage}) => {
   const { isAuth, setIsAuth } = useContext(MainContext);
+  const [user, setUser] = useState({});
+
   const [error, setError] = useState(false)
   let navigate = useNavigate();
 
-  const signIn = useCallback(() => {
-    signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", true);
-      setIsAuth(true);
-    });
-  }, [isAuth, setIsAuth, navigate]);
 
-  const logged = async (data) => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
- 
-      localStorage.setItem("isAuth", true);
-      console.log("good");
-
-    } catch (error) {
-      console.log(error.message);
-      console.log("wrong");
-      setError(true)
-    }
-
-  };
+  const handleAction =  (data) => {
+    const authentication = getAuth();
+    
+      createUserWithEmailAndPassword(authentication, data.email, data.password);
+        
+        
+      }
 
     // Show / Hide Toggle 
     const [values, setValues] = useState({
@@ -81,7 +66,7 @@ const SignUp = ({loginPage, setLoginPage}) => {
   return (
     <>
        {!loginPage ?
-       <form onSubmit={handleSubmit(logged)}>
+       <form onSubmit={handleSubmit(handleAction)}>
 
 <div className="login-form">
 

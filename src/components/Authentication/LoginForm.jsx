@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import IconButton from "@material-ui/core/IconButton";
-import { useContext, MainContext } from "../hooks/Context";
+import { useContext, MainContext } from "../../hooks/Context";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import {
@@ -12,19 +12,13 @@ import {
   signOut,
 } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-import { auth, provider } from "../configs/firebase-config";
+import { auth, provider } from "../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 const LoginForm = ({loginPage, setLoginPage}) => {
   const { isAuth, setIsAuth } = useContext(MainContext);
   const [error, setError] = useState(false)
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const signIn = useCallback(() => {
-    signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", true);
-      setIsAuth(true);
-    });
-  }, [isAuth, setIsAuth, navigate]);
 
   const logged = async (data) => {
     try {
@@ -35,7 +29,7 @@ const LoginForm = ({loginPage, setLoginPage}) => {
       );
  
       localStorage.setItem("isAuth", true);
-      console.log("good");
+      navigate("/");
 
     } catch (error) {
       console.log(error.message);

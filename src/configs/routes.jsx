@@ -1,14 +1,10 @@
-import MainContainer from './../components/MainContainer';
-import Signup from './../components/SignUp';
+import MainContainer from '../components/Authentication/MainContainer';
+import Home from '../components/Home/Home';
 const eventbriteRoutes = [
     {
-       path: "/",
-      element: <MainContainer />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-    },
+      path: "/",
+     element: <Home />
+   }
   ];
   
   export { eventbriteRoutes };

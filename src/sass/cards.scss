@@ -1,0 +1,74 @@
+.card-container {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-inside {
+  display: flex;
+  margin: 1rem;
+  padding: 1rem;
+  width: 70%;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.header {
+  margin: 1rem;
+}
+.single-card {
+  margin: 1rem;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.single-card:hover {
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+.single-card h6 {
+  margin: 10px;
+  margin-left: 1.3rem;
+}
+
+.title {
+  color: #39364f;
+  font-size: 18px;
+}
+
+.date {
+  color: #f05537;
+  font-size: 15px;
+}
+
+.location,
+.price {
+  color: #6f7287;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.owner,
+.follower {
+  color: #39364f;
+  font-size: 12px;
+}
+
+.card-img {
+  max-width: 100%;
+}
