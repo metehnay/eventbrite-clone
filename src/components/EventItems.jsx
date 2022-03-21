@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import {demoData} from "./demoData"
+import {demoData} from "../../../data/demoData"
 
-export const EventsCard = () => {
+export const EventItems = () => {
 
     const [events, setEvents] = useState(demoData)
   return (

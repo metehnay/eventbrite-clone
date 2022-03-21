@@ -3,49 +3,23 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import IconButton from "@material-ui/core/IconButton";
-import { useContext, MainContext } from "../../hooks/Context";
+import { useContext, MainContext } from "../../../hooks/Context";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-import { auth, provider } from "../../configs/firebase-config";
+import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
-const SignUp = ({loginPage, setLoginPage}) => {
-  const { isAuth, setIsAuth } = useContext(MainContext);
-  const [user, setUser] = useState({});
-
+import { LoginRequest, FormData, useToggle} from './../../../helpers/helpers';
+const LoginForm = ({loginPage, setLoginPage}) => {
+  const { isAuth, setIsAuth, inputLabel, inputLabel2, setInputLabel, setInputLabel2 } = useContext(MainContext);
   const [error, setError] = useState(false)
-  let navigate = useNavigate();
+  const [visibility, setVisibility] = useState(false);
+  const {values, setValues, showPassword, hidePassword} = useToggle();
+  const navigate = useNavigate();
 
-
-  const handleAction =  (data) => {
-    const authentication = getAuth();
-    
-      createUserWithEmailAndPassword(authentication, data.email, data.password);
-        
-        
-      }
-
-    // Show / Hide Toggle 
-    const [values, setValues] = useState({
-        password: "",
-        showPassword: false,
-      });
-
-      const handleClickShowPassword = () => {
-        setValues({ ...values, showPassword: !values.showPassword });
-      };
-
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
-
-      const [visibility, setVisibility] = useState(false)
-
+  const logged = async (data) => {
+    LoginRequest(data, navigate)
+  };
 
     // useForm settings 
 
@@ -57,16 +31,12 @@ const SignUp = ({loginPage, setLoginPage}) => {
       const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(schema)
       });
-      // const onSubmit = (data) => (console.log(data));
-
   // Input Label Colors 
-  const [inputLabel, setInputLabel] = useState(false);
-  const [inputLabel2, setInputLabel2] = useState(false);
       
   return (
     <>
-       {!loginPage ?
-       <form onSubmit={handleSubmit(handleAction)}>
+       {loginPage ?
+       <form onSubmit={handleSubmit(logged)}>
 
 <div className="login-form">
 
@@ -93,8 +63,8 @@ onBlur={() => setInputLabel(false)}
     {visibility && 
     <div className="icon">
     <IconButton className="show-hide"
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
+              onClick={showPassword}
+              onMouseDown={hidePassword}
             >
                 {!values.showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton></div>
@@ -107,7 +77,9 @@ onBlur={() => (setVisibility(false), setInputLabel2(false),  setValues({ ...valu
 {error && <span style={{fontSize: "12px", color: "#C61C33"}}>Email or password is wrong. Please try again...</span>}
  {/* Buttons */}
 
-<button className="form-button">Sign Up</button>
+<button className="form-button">Log in</button>
+
+<button className="form-button-secondary">Email me a login link</button>
 </div>
 </form>
 : ""}
@@ -115,4 +87,4 @@ onBlur={() => (setVisibility(false), setInputLabel2(false),  setValues({ ...valu
   )
 }
 
-export default SignUp
+export default LoginForm

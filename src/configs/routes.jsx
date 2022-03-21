@@ -1,5 +1,6 @@
-import MainContainer from '../components/Authentication/MainContainer';
-import Home from '../components/Home/Home';
+
+import Home from '../pages/auth/Home/Home';
+import MainContainer from './../pages/auth/Authentication/MainContainer';
 const eventbriteRoutes = [
     {
       path: "/",

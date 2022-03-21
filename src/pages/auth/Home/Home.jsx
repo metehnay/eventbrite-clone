@@ -1,6 +1,6 @@
 import React from 'react'
-import { EventsCard } from './EventsCard'
 import Header from './Header'
+import { EventItems } from './EventItems';
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
         <div className="button-container">
           <button className="home-btn">Find your next event</button></div>
       </div></div></div>
-      <EventsCard />
+      <EventItems />
       </>
   )
 }

@@ -4,9 +4,9 @@ import { db, auth } from "./configs/firebase-config";
 import { MainContext } from "./hooks/Context";
 import { eventbriteRoutes } from "./configs/routes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Home/Header";
-import MainContainer from "./components/Authentication/MainContainer";
 import { Outlet, useLocation } from "react-router-dom";
+import Header from "./pages/auth/Home/Header";
+import MainContainer from "./pages/auth/Authentication/MainContainer";
 
 const Layout = ({ hideHeaderPaths = [] }) => {
   const { pathname } = useLocation();
@@ -21,10 +21,15 @@ const Layout = ({ hideHeaderPaths = [] }) => {
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-
+  const [inputLabel, setInputLabel] = useState(false);
+  const [inputLabel2, setInputLabel2] = useState(false);
   const data = {
     isAuth,
     setIsAuth,
+    inputLabel,
+    inputLabel2,
+    setInputLabel,
+    setInputLabel2,
   };
 
   return (
