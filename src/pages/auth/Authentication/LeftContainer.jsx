@@ -3,7 +3,7 @@ import google from "../../../images/svg/google.svg"
 import facebook from "../../../images/svg/facebook.svg"
 import apple from "../../../images/svg/apple.svg"
 import LoginForm from './LoginForm';
-import SignUp from './SignUp';
+import SignUp from './SignUpForm';
 import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useContext, MainContext } from "../../../hooks/Context";

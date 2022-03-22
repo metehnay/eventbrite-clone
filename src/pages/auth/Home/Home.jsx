@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import { EventItems } from './EventItems';
+import { EventItems } from './../../../components/EventItems';
 
 const Home = () => {
   return (

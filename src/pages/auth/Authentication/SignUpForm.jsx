@@ -10,7 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { SignUpRequest, useToggle } from "../../../helpers/helpers";
-const SignUp = ({loginPage, setLoginPage}) => {
+const SignUpForm = ({loginPage, setLoginPage}) => {
   const { isAuth, setIsAuth, inputLabel, inputLabel2, setInputLabel, setInputLabel2} = useContext(MainContext);
   const [visibility, setVisibility] = useState(false)
   const {values, setValues, showPassword, hidePassword} = useToggle();
@@ -85,4 +85,4 @@ onBlur={() => (setVisibility(false), setInputLabel2(false),  setValues({ ...valu
   )
 }
 
-export default SignUp
+export default SignUpForm

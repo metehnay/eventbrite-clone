@@ -1,3 +1,5 @@
+// IMPORTS
+
 import React, { useEffect, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,6 +12,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { LoginRequest, FormData, useToggle} from './../../../helpers/helpers';
+
+//COMPONENT
+
 const LoginForm = ({loginPage, setLoginPage}) => {
   const { isAuth, setIsAuth, inputLabel, inputLabel2, setInputLabel, setInputLabel2 } = useContext(MainContext);
   const [error, setError] = useState(false)
@@ -31,7 +36,6 @@ const LoginForm = ({loginPage, setLoginPage}) => {
       const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(schema)
       });
-  // Input Label Colors 
       
   return (
     <>
@@ -71,8 +75,10 @@ onBlur={() => setInputLabel(false)}
 }
 <input type={values.showPassword ? "text" : "password"} id="pass" className={errors.password  ? "form-error" : "form-input" } 
 {...register("password")} 
-onFocus={ () => (setInputLabel2(true), setVisibility(true))} 
-onBlur={() => (setVisibility(false), setInputLabel2(false),  setValues({ ...values, showPassword: false }))}  /></div>
+onFocus={() => (setInputLabel2(true), setVisibility(true))} 
+onBlur={() => (setVisibility(false), setInputLabel2(false),  
+setValues({ ...values, showPassword: false }))}  
+/></div>
 {errors.password && <span style={{fontSize: "12px", color: "#C61C33"}}>Password is invalid</span>}
 {error && <span style={{fontSize: "12px", color: "#C61C33"}}>Email or password is wrong. Please try again...</span>}
  {/* Buttons */}
