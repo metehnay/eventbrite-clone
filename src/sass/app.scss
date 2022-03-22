@@ -1,8 +1,9 @@
 @import "main";
-@import "leftside";
-@import "rightside";
+@import "./authentication/leftside";
+@import "./authentication/rightside";
 @import "./responsive/login";
 @import "hovers";
-@import "header";
-@import "home";
-@import "cards";
+@import "./common/header";
+@import "./home/home";
+@import "./home/cards";
+@import "./common/footer.scss"

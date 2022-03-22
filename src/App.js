@@ -5,8 +5,8 @@ import { MainContext } from "./hooks/Context";
 import { eventbriteRoutes } from "./configs/routes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "./pages/auth/Home/Header";
 import MainContainer from "./pages/auth/Authentication/MainContainer";
+import Header from "./pages/auth/common/Header";
 
 const Layout = ({ hideHeaderPaths = [] }) => {
   const { pathname } = useLocation();

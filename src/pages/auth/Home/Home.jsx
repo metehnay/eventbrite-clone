@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './Header'
+import Footer from '../common/Footer';
 import { EventItems } from './../../../components/EventItems';
 
 const Home = () => {
@@ -13,6 +13,7 @@ const Home = () => {
           <button className="home-btn">Find your next event</button></div>
       </div></div></div>
       <EventItems />
+      <Footer />
       </>
   )
 }
