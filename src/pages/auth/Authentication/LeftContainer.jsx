@@ -7,7 +7,7 @@ import SignUp from './SignUpForm';
 import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useContext, MainContext } from "../../../hooks/Context";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LeftContainer = () => {
   const [loginPage, setLoginPage] = useState(true)

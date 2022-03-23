@@ -14,7 +14,7 @@ import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyASUyODcYfE8JbWIWQnmdaQiWJmJN3lNsQ",
+  apiKey: `${process.env.REACT_APP_FIREBASE_KEY}`,
   authDomain: "eventbrite-8c78f.firebaseapp.com",
   projectId: "eventbrite-8c78f",
   storageBucket: "eventbrite-8c78f.appspot.com",

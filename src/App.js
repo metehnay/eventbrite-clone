@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./sass/app.scss";
-import { db, auth } from "./configs/firebase-config";
 import { MainContext } from "./hooks/Context";
 import { eventbriteRoutes } from "./configs/routes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
