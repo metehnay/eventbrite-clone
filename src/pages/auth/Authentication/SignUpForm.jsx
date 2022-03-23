@@ -12,9 +12,8 @@ const SignUpForm = ({loginPage, setLoginPage}) => {
   const [visibility, setVisibility] = useState(false)
   const {values, setValues, showPassword, hidePassword} = useToggle();
 
-
   const handleAction =  (data) => {
-    SignUpRequest(data)
+    SignUpRequest(data, setLoginPage)
         
       }
     // useForm settings 

@@ -1,17 +1,12 @@
 import {
     signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
     createUserWithEmailAndPassword,
     signInWithPopup,
     getAuth
   } from "firebase/auth";
-import { useNavigate, Link, Navigate } from "react-router-dom";
 import { auth, provider } from "../configs/firebase-config";
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
-import React,{useState, useCallback} from 'react'
+import {useState} from 'react'
+
 
 // Show and Hide Password
 
@@ -65,11 +60,11 @@ export function GoogleSign(isAuth, setIsAuth, navigate) {
 
 // Sign Up
 
-export function SignUpRequest(data) {
+export function SignUpRequest(data, setLoginPage) {
   const authentication = getAuth();
-    
   createUserWithEmailAndPassword(authentication, data.email, data.password);
-  
+  setLoginPage(true)
+
 }
 
 
