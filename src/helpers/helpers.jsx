@@ -3,6 +3,7 @@ import {
     onAuthStateChanged,
     signOut,
     createUserWithEmailAndPassword,
+    signInWithPopup,
     getAuth
   } from "firebase/auth";
 import { useNavigate, Link, Navigate } from "react-router-dom";
@@ -30,6 +31,17 @@ export function useToggle() {
 
   return {values, setValues, showPassword,hidePassword};
 }
+
+// Login with Google ACCOUNT
+
+export function GoogleSign(isAuth, setIsAuth, navigate) {
+  signInWithPopup(auth, provider).then((result) => {
+    localStorage.setItem("isAuth", true);
+    setIsAuth(true);
+    navigate("/")
+  });
+}
+
 
 
 // Login Function
@@ -59,4 +71,5 @@ export function SignUpRequest(data) {
   createUserWithEmailAndPassword(authentication, data.email, data.password);
   
 }
+
 

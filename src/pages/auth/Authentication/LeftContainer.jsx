@@ -8,17 +8,16 @@ import { auth, provider } from "../../../configs/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useContext, MainContext } from "../../../hooks/Context";
 import { useNavigate } from "react-router-dom";
+import { GoogleSign } from './../../../helpers/helpers';
 
 const LeftContainer = () => {
   const [loginPage, setLoginPage] = useState(true)
   const { isAuth, setIsAuth } = useContext(MainContext);
   let navigate = useNavigate();
 
+
   const signIn = useCallback(() => {
-    signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", true);
-      setIsAuth(true);
-    });
+    GoogleSign(isAuth, setIsAuth, navigate)
   }, [isAuth, setIsAuth, navigate]);
 
   return (
