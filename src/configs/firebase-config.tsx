@@ -13,8 +13,6 @@ import {
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
-
-
 const firebaseConfig = {
   apiKey: `${process.env.REACT_APP_FIREBASE_KEY}`,
   authDomain: "eventbrite-8c78f.firebaseapp.com",
@@ -33,7 +31,7 @@ export const auth = getAuth(app);
 const storage = getStorage();
 
 export function useAuth() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState<any>();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));

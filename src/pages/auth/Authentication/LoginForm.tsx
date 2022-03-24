@@ -25,7 +25,7 @@ const LoginForm = ({loginPage, setLoginPage}: Props) => {
   const {values, setValues, showPassword, hidePassword} = useToggle();
   const navigate = useNavigate();
 
-  const logged = async (data: Props) => {
+  const logged = async (data: any) => {
     LoginRequest(data, navigate)
   };
 
@@ -67,15 +67,15 @@ onBlur={() => setInputLabel(false)}
     <label className="label"> 
       <span className={errors.password  ? "form-error" : "form-input" } id={inputLabel2 ? "blue-label" : ""}>Password</span>
     </label>
-    {visibility && 
+    {/* {visibility && 
     <div className="icon">
     <IconButton className="show-hide"
-              onClick={showPassword}
+              onClick={ showPassword}
               onMouseDown={hidePassword}
             >
                 {!values.showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton></div>
-}
+} */}
 <input type={values.showPassword ? "text" : "password"} id="pass" className={errors.password  ? "form-error" : "form-input" } 
 {...register("password")} 
 onFocus={() => (setInputLabel2(true), setVisibility(true))} 

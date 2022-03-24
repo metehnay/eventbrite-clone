@@ -10,6 +10,8 @@ import Header from "./pages/auth/common/Header";
 type Props = {
   hideHeaderPaths: Array<string>,
   loginPage: boolean;
+  isAuth: string | boolean;
+  SetIsAuth: React.Dispatch<React.SetStateAction<string | boolean>>
   setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -42,6 +44,8 @@ const App: React.FC<Props>= ({loginPage, setLoginPage}) => {
       <MainContext.Provider value={data}>
         <Router>
           <Layout hideHeaderPaths={["/login"]} loginPage={false} setLoginPage={function (value: React.SetStateAction<boolean>): void {
+            throw new Error("Function not implemented.");
+          } } isAuth={""} SetIsAuth={function (value: React.SetStateAction<string | boolean>): void {
             throw new Error("Function not implemented.");
           } } />
 

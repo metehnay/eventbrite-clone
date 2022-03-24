@@ -7,7 +7,10 @@ import {
 import { auth, provider } from "../configs/firebase-config";
 import {useState} from 'react'
 
-
+interface props {
+  isAuth: string | boolean;
+  SetIsAuth: React.Dispatch<React.SetStateAction<string | boolean>>
+}
 // Show and Hide Password
 
 export function useToggle() {
@@ -31,7 +34,7 @@ export function useToggle() {
 
 export function GoogleSign(isAuth: any, setIsAuth: any, navigate: any) {
   signInWithPopup(auth, provider).then((result) => {
-    localStorage.setItem("isAuth", true);
+    localStorage.setItem("isAuth", "true");
     setIsAuth(true);
     navigate("/")
   });
@@ -48,7 +51,7 @@ export function GoogleSign(isAuth: any, setIsAuth: any, navigate: any) {
         data.email,
         data.password
       );
-      localStorage.setItem("isAuth", true);
+      localStorage.setItem("isAuth", "true");
       navigate("/")
   
     } catch (error) {
