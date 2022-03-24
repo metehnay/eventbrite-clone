@@ -20,7 +20,7 @@ export function useToggle() {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const hidePassword = (event) => {
+  const hidePassword = (event: Event) => {
     event.preventDefault();
   };
 
@@ -29,7 +29,7 @@ export function useToggle() {
 
 // Login with Google ACCOUNT
 
-export function GoogleSign(isAuth, setIsAuth, navigate) {
+export function GoogleSign(isAuth: any, setIsAuth: any, navigate: any) {
   signInWithPopup(auth, provider).then((result) => {
     localStorage.setItem("isAuth", true);
     setIsAuth(true);
@@ -41,7 +41,7 @@ export function GoogleSign(isAuth, setIsAuth, navigate) {
 
 // Login Function
 
-  export async function LoginRequest(data, navigate) {
+  export async function LoginRequest(data: any, navigate: any) {
     try {
       const user =  await signInWithEmailAndPassword(
         auth,
@@ -52,7 +52,7 @@ export function GoogleSign(isAuth, setIsAuth, navigate) {
       navigate("/")
   
     } catch (error) {
-      console.log(error.message);
+      console.log("error");
     }
   
 }
@@ -60,7 +60,7 @@ export function GoogleSign(isAuth, setIsAuth, navigate) {
 
 // Sign Up
 
-export function SignUpRequest(data, setLoginPage) {
+export function SignUpRequest(data: any, setLoginPage: any) {
   const authentication = getAuth();
   createUserWithEmailAndPassword(authentication, data.email, data.password);
   setLoginPage(true)

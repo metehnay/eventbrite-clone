@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import "./sass/app.scss";
 import { MainContext } from "./hooks/Context";
 import { eventbriteRoutes } from "./configs/routes";
@@ -7,18 +7,24 @@ import { Outlet, useLocation } from "react-router-dom";
 import MainContainer from "./pages/auth/Authentication/MainContainer";
 import Header from "./pages/auth/common/Header";
 
-const Layout = ({ hideHeaderPaths = [] }) => {
+type Props = {
+  hideHeaderPaths: Array<string>,
+  loginPage: boolean;
+  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Layout: React.FC<Props> = ({ hideHeaderPaths}) => {
   const { pathname } = useLocation();
 
   return (
     <>
-      {!hideHeaderPaths.includes(pathname) && <Header />}
+      {!hideHeaderPaths.includes(pathname)&& <Header />}
       <Outlet />
     </>
   );
 };
 
-function App() {
+const App: React.FC<Props>= ({loginPage, setLoginPage}) => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const [inputLabel, setInputLabel] = useState(false);
   const [inputLabel2, setInputLabel2] = useState(false);
@@ -35,14 +41,15 @@ function App() {
     <>
       <MainContext.Provider value={data}>
         <Router>
-          <Layout hideHeaderPaths={["/login"]} />
+          <Layout hideHeaderPaths={["/login"]} loginPage={false} setLoginPage={function (value: React.SetStateAction<boolean>): void {
+            throw new Error("Function not implemented.");
+          } } />
 
           <Routes>
-            <Route path="/login" element={<MainContainer />} />
+            <Route path="/login" element={<MainContainer loginPage={loginPage} setLoginPage={setLoginPage} />} />
 
             {eventbriteRoutes.map((RouteItem, index) => (
               <Route
-                exact
                 key={index}
                 path={RouteItem.path}
                 element={RouteItem.element}

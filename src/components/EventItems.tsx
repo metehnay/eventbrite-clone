@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import { demoData } from './../data/demoData';
-export const EventItems = () => {
+
+
+
+export const EventItems: React.FC = () => {
 
     const [events, setEvents] = useState(demoData)
   return (

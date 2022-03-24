@@ -13,14 +13,19 @@ import { LoginRequest, useToggle} from './../../../helpers/helpers';
 
 //COMPONENT
 
-const LoginForm = ({loginPage, setLoginPage}) => {
+interface Props {
+  loginPage: boolean;
+  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const LoginForm = ({loginPage, setLoginPage}: Props) => {
   const { inputLabel, inputLabel2, setInputLabel, setInputLabel2 } = useContext(MainContext);
   const [error, setError] = useState(false)
   const [visibility, setVisibility] = useState(false);
   const {values, setValues, showPassword, hidePassword} = useToggle();
   const navigate = useNavigate();
 
-  const logged = async (data) => {
+  const logged = async (data: Props) => {
     LoginRequest(data, navigate)
   };
 

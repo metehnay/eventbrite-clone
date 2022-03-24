@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react'
-import google from "../../../images/svg/google.svg"
-import facebook from "../../../images/svg/facebook.svg"
-import apple from "../../../images/svg/apple.svg"
+// import google from "../../../images/svg/google.svg"
+// import facebook from "../../../images/svg/facebook.svg"
+// import apple from "../../../images/svg/apple.svg"
 import LoginForm from './LoginForm';
 import SignUp from './SignUpForm';
 import { auth, provider } from "../../../configs/firebase-config";
@@ -10,7 +10,12 @@ import { useContext, MainContext } from "../../../hooks/Context";
 import { useNavigate } from "react-router-dom";
 import { GoogleSign } from './../../../helpers/helpers';
 
-const LeftContainer = () => {
+export interface props {
+  loginPage: boolean;
+  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const LeftContainer: React.FC<props> = () => {
   const [loginPage, setLoginPage] = useState(true)
   const { isAuth, setIsAuth } = useContext(MainContext);
   let navigate = useNavigate();
@@ -54,9 +59,15 @@ const LeftContainer = () => {
 
 {/* Social Login Links */}
 <div className="sign-container">
-<h4 className="google" onClick={signIn}><img src={google} alt="google" /><span>Sign in with Google</span></h4>
-<h4 className="facebook" onClick={signIn}><img src={facebook} alt="facebook" /><span>Sign in with Facebook</span></h4>
-<h4 className="apple" onClick={signIn}><img src={apple} alt="apple" /><span>Sign in with Apple</span></h4>
+<h4 className="google" onClick={signIn}> 
+{/* <img src={google} alt="google" />  */}
+<span>Sign in with Google</span></h4>
+<h4 className="facebook" onClick={signIn}> 
+{/* <img src={facebook} alt="facebook" /> */}
+ <span>Sign in with Facebook</span></h4>
+<h4 className="apple" onClick={signIn}> 
+{/* <img src={apple} alt="apple" />  */}
+<span>Sign in with Apple</span></h4>
 <h5 onClick={() => setLoginPage(!loginPage)}>{loginPage ? "Sign up for Eventbrite" : "Log in"}</h5>
 </div></div>
 

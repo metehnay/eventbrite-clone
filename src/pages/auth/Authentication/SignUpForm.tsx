@@ -7,12 +7,18 @@ import { useContext, MainContext } from "../../../hooks/Context";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { SignUpRequest, useToggle } from "../../../helpers/helpers";
-const SignUpForm = ({loginPage, setLoginPage}) => {
+
+interface props {
+  loginPage: boolean;
+  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SignUpForm = ({loginPage, setLoginPage}: props) => {
   const { inputLabel, inputLabel2, setInputLabel, setInputLabel2} = useContext(MainContext);
   const [visibility, setVisibility] = useState(false)
   const {values, setValues, showPassword, hidePassword} = useToggle();
 
-  const handleAction =  (data) => {
+  const handleAction =  (data: any) => {
     SignUpRequest(data, setLoginPage)
         
       }

@@ -5,7 +5,7 @@ import {RiTicket2Line} from "react-icons/ri"
 import {FiUser} from "react-icons/fi"
 import {AiOutlineSearch} from "react-icons/ai"
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className="header-main">
         <div className="header-items">
